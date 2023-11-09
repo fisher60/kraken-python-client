@@ -16,7 +16,7 @@ jobs:
         run: pdm install
 
       - name: Lint
-        run: flake8
+        run: pdm run flake8
 
       - name: Run Tests
-        run: pytest --junitxml=junit/test-results.xml --cov=com --cov-report=xml --cov-report=html
+        run: pdm run pytest --junitxml=junit/test-results.xml --cov=com --cov-report=xml --cov-report=html
