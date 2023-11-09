@@ -1,15 +1,17 @@
-[tool.poetry]
-name = "python-kraken"
+[project]
+name = "kraken"
 version = "0.1.0"
 description = ""
-authors = ["Fisher60"]
+authors = [
+    {name = "Fisher60", email = "kyler@abandontech.cloud"},
+]
+dependencies = [
+    "httpx>=0.25.1",
+]
+requires-python = ">=3.11"
 readme = "README.md"
-
-[tool.poetry.dependencies]
-python = "^3.11"
-httpx = "^0.25.1"
-
+license = {text = "MIT"}
 
 [build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"
