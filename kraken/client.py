@@ -1,5 +1,3 @@
-from time import time
-
 from httpx import AsyncClient, RequestError
 
 from kraken.models import TradeableAssetPairsInfo
@@ -52,7 +50,12 @@ class KrakenClient:
             pairs: list[str],
             info: TradeableAssetPairsInfo = TradeableAssetPairsInfo.info
     ):
-        """Each ticker_pair is a ticker_pair of currencies such as 'BTC/USD' or 'ETH/BTC'"""
+        """Each pair is a ticker_pair
+
+        Ticker pair is a valid combination of asset codes as outlined in kraken support
+
+        https://support.kraken.com/hc/en-us/articles/360001185506-How-to-interpret-asset-codes
+        """
         params = {
             "ticker_pair": ",".join(pairs),
             "info": info
@@ -87,6 +90,10 @@ class KrakenClient:
         return await self._get_public("OHLC", params=params)
 
     async def get_order_book(self, ticker_pair: str, count: int = 100):
+        """Ticker pair is a valid combination of asset codes as outlined in kraken support
+
+        https://support.kraken.com/hc/en-us/articles/360001185506-How-to-interpret-asset-codes
+        """
         params = {
             "pair": ticker_pair,
             "count": count
@@ -95,6 +102,10 @@ class KrakenClient:
         return await self._get_public("Depth", params=params)
 
     async def get_recent_trades(self, ticker_pair: str, since: int, count: int = 100):
+        """Ticker pair is a valid combination of asset codes as outlined in kraken support
+
+        https://support.kraken.com/hc/en-us/articles/360001185506-How-to-interpret-asset-codes
+        """
         params = {
             "pair": ticker_pair,
             "since": since,
@@ -104,6 +115,10 @@ class KrakenClient:
         return await self._get_public("Trades", params=params)
 
     async def get_recent_spreads(self, ticker_pair: str, since: int):
+        """Ticker pair is a valid combination of asset codes as outlined in kraken support
+
+        https://support.kraken.com/hc/en-us/articles/360001185506-How-to-interpret-asset-codes
+        """
         params = {
             "pair": ticker_pair,
             "since": since
