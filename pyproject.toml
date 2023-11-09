@@ -1,5 +1,5 @@
 [project]
-name = "kraken"
+name = "kraken_client"
 version = "0.1.0"
 description = ""
 authors = [

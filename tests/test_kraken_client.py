@@ -2,7 +2,7 @@ from time import time
 
 import pytest
 
-from kraken.client import KrakenClient
+from kraken_client.client import KrakenClient
 
 
 @pytest.fixture()

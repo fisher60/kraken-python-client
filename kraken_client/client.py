@@ -1,6 +1,6 @@
 from httpx import AsyncClient, RequestError
 
-from kraken.models import TradeableAssetPairsInfo
+from kraken_client.models import TradeableAssetPairsInfo
 
 
 class KrakenClient:
