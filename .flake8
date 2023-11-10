@@ -26,5 +26,4 @@ ignore=
     B008
 
 per-file-ignores=
-    abandonauth/models/__init__.py:F401
-    abandonauth/routers/__init__.py:F401
+    kraken_client/__init__.py:F401
